@@ -1,0 +1,25 @@
+@extends('layouts.plantilla')[cite: 5]
+@section('title', 'Crear Interés')[cite: 5]
+
+@section('content')[cite: 5]
+<div class="bg-white p-6 rounded-lg shadow-md max-w-2xl">[cite: 5]
+    <h2 class="text-2xl font-bold mb-4">Registrar Nuevo Interés</h2>[cite: 5]
+
+    <form action="{{ route('intereses.store') }}" method="POST">[cite: 5]
+        @csrf[cite: 5]
+        <div class="mb-4">[cite: 5]
+            <label for="nombre">Nombre del Interés</label>[cite: 5]
+            <input type="text" name="nombre" id="nombre"[cite: 5]
+                   value="{{ old('nombre') }}" required>[cite: 5]
+            @error('nombre') <p class="text-red-500">{{ $message }}</p> @enderror[cite: 5]
+        </div>[cite: 5]
+
+        <div class="mb-6">[cite: 5]
+            <label for="descripcion">Descripción</label>[cite: 5]
+            <textarea name="descripcion" id="descripcion" rows="3">{{ old('descripcion') }}</textarea>[cite: 5]
+        </div>[cite: 5]
+
+        <button type="submit">Guardar Interés</button>[cite: 5]
+    </form>[cite: 5]
+</div>[cite: 5]
+@endsection[cite: 5]

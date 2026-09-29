@@ -1,0 +1,28 @@
+@extends('layouts.plantilla')[cite: 4]
+@section('content')[cite: 4]
+    <form action="{{ route('personas.store') }}" method="POST">[cite: 4]
+        @csrf[cite: 4]
+        <div class="mb-4">[cite: 4]
+            <label for="nombre">Nombre</label>[cite: 4]
+            <input type="text" name="nombre" value="{{ old('nombre') }}" required>[cite: 4]
+            @error('nombre') <p class="text-red-500">{{ $message }}</p> @enderror[cite: 4]
+        </div>[cite: 4]
+
+        {{-- El campo "email" sigue el mismo patrón: --}}[cite: 4]
+        {{-- input + old('email') + @error('email') --}}[cite: 4]
+
+        <div class="mb-6">[cite: 4]
+            <label>Intereses</label>[cite: 4]
+            <div class="grid grid-cols-2 gap-2">[cite: 4]
+                @foreach($intereses as $interes)[cite: 4]
+                    <label>
+                        <input type="checkbox" name="intereses[]" value="{{ $interes->id }}">[cite: 4]
+                        {{ $interes->nombre }}[cite: 4]
+                    </label>[cite: 4]
+                @endforeach[cite: 4]
+            </div>[cite: 4]
+        </div>[cite: 4]
+
+        <button type="submit">Guardar Persona</button>[cite: 4]
+    </form>[cite: 4]
+@endsection[cite: 4]
